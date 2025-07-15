@@ -1,0 +1,30 @@
+<% include("../layouts/header.ejs") %>
+
+  <link rel="stylesheet" href="/style/loginStyle.css">
+
+ 
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Forget </h2>
+
+    <!-- Login Form -->
+    <form  method="post">
+      <input type="email" id="login" class="fadeIn second input" name="email" placeholder="Email">
+      <input type="submit" class="fadeIn fourth" value="Reset Password">
+    </form>
+
+  </div>
+</div>
+
+
+<%
+if(typeof message !== 'undefined'){
+  %>
+  <p style="color: green;"><%= message %></p>
+  <%
+}
+ %>
+
+<% include("../layouts/footer.ejs") %>
+  

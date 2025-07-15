@@ -1,0 +1,42 @@
+<% include("../layouts/header.ejs") %>
+<link rel="stylesheet" href="/css/bootstrap.css" />
+  <link rel="stylesheet" href="/style/home.css">
+
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <h6 class="navbar-brand">Welcome <%= user.name %></h6>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse me-5" id="navbarSupportedContent">
+    <form class="d-flex logout" role="search">
+            <a class="text-decoration-none" href="/logout">Log Out</a>
+          </form>
+  </div>
+</nav>
+
+
+<br>
+<table >
+  <tr>
+    <td><img src="userImages/<%= user.image %>" width="100px" height="100px" alt=""></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <td>Mobile</td>
+    <td><%= user.mobile %></td>
+  </tr>
+</table>
+<br>
+<a href="/edit?id=<%= user._id %>">Edit</a>
+
+
+
+<% include("../layouts/footer.ejs") %>
+  

@@ -1,0 +1,60 @@
+<% include("../layouts/header.ejs") %>
+
+<h1>Dashboard</h1>
+<br>
+<table width="50%">
+  <!-- <tr>
+    <td><img src="/userImages/<%= admin.image %>" width="100px" height="100px" alt=""></td>
+  </tr> -->
+  <tr>
+    <td>Name</td>
+    <td>Mobile</td>
+    <td>Email</td>
+    <td>Image</td>
+    <td>Verified</td>
+    <td>Actions</td>
+  </tr>
+  <%
+    if(admin.length > 0){
+      for(let i = 0; i<admin.length ; i++){
+        %>
+        <tr>
+          <td><%= admin[i].name %> </td>
+          <td><%= admin[i].mobile %> </td>
+          <td><%= admin[i].email %> </td>
+          <td><img src="/userImages/<%= admin[i].image %>" alt="<%= admin[i].image %>" width="100px" height="100px"></td>
+          <td><%
+            if(admin[i].is_varified == 0){
+              %>
+              <p>Not Verfied</p>
+              <%
+            }
+            else{
+              %>
+              <p>Verfied</p>
+              <%
+            }
+            %> </td>
+            <td>
+              <a href="/admin/edit-user?id=<%= admin[i]._id %>">Edit</a>
+              <a href="/admin/delete-user?id=<%= admin[i]._id %>">Delete</a>
+            </td>
+        </tr>
+        <%
+      }
+    }else{
+      %>
+      <tr>
+        <td colspan="5"> User Not Found </td>
+      </tr>
+      <%
+    }
+   %>
+</table>
+<br>
+<a href="/admin/add">Add</a>
+<br>
+<a href="/admin/home">Go to back</a>
+
+<% include("../layouts/footer.ejs") %>
+  

@@ -1,0 +1,36 @@
+<% include("../layouts/header.ejs") %>
+
+<h1>Edit</h1>
+
+<img src="userImages/<%= user.image %>" width="100px" height="100px" alt="">
+
+<form action="" method="post">
+
+  <input type="hidden" name="id" value="<%= user._id %>">
+  <br><br>
+  <input type="text" name="name" value="<%= user.name %>" placeholder="Enter Your name" required>
+  <br><br>
+  <input type="email" name="email" value="<%= user.email %>" placeholder="Enter Your email" required>
+  <br><br>
+  <input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Your mobile" required>
+  <br><br>
+  <label >Verified</label>
+  <input type="radio" name="verify" value="1" <% if( user.is_varified === 1 ) { %> checked <% } %> >
+  <label >Unverified</label>
+  <input type="radio" name="verify" value="0" <% if( user.is_varified === 0 ) { %> checked <% } %>>
+  <br><br>
+  <input type="submit" value="Update Profile">
+</form>
+
+<a href="/admin/dasboard">Go to back</a>
+
+<%
+if(typeof message !== 'undefined'){
+  %>
+  <p style="color: green;"><%= message %></p>
+  <%
+}
+ %>
+
+<% include("../layouts/footer.ejs") %>
+  
